@@ -49,6 +49,27 @@ export default function Home() {
     }
   };
 
+  const testimonials = [
+    {
+      text: "The work done by Premium Edge Curbing is exceptional! Our landscape looks much nicer with an edging between the mulched areas and grass, besides making it easier to mow. The workers arrived when expected, worked with precision and left us with a very clean site. This is an honest company and we highly recommend them.",
+      author: "Sandra Brockie",
+      location: "Jackson, MI",
+      rating: 5
+    },
+    {
+      text: "We are so happy with the work that Premium Edge Curbing did at our new home. We are excited to have a beautiful barrier between the grass that we mow and the landscaping around the house. We were able to do a good portion of the perimeter around the house and hope to have the crew back out to do more work for us in the future! Highly recommend!",
+      author: "Betsi Moulios",
+      location: "Jackson, MI",
+      rating: 5
+    },
+    {
+      text: "Excellent work!! Great honest company. I would highly recommend them.",
+      author: "Kenneth Coolbaugh",
+      location: "Jackson, MI",
+      rating: 5
+    }
+  ];
+
   return (
     <>
       <Header />
@@ -280,111 +301,29 @@ export default function Home() {
               Don't just take our word for it. Here's what our customers have to say about our work.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-stone-900/50 p-6 rounded-lg">
-                <div className="flex mb-4">
-                  {[...Array(4)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#d8f84a]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-stone-300 mb-4">
-                  "Premium Edge Curbing transformed our front yard! The curbing looks fantastic and has held up perfectly through Michigan's harsh winter. Highly recommend their services."
-                </p>
-                <div className="flex items-center">
-                  <div className="h-10 w-10 bg-[#d8f84a]/10 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-[#d8f84a] font-semibold">JD</span>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.author} className="bg-stone-900/50 p-6 rounded-lg">
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <svg key={i} className="w-5 h-5 text-[#d8f84a]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-white">John Donovan</h4>
-                    <p className="text-stone-300">Jackson, MI</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-stone-900/50 p-6 rounded-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#d8f84a]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-stone-300 mb-4">
-                  "Mike and Rob were professional from start to finish. They helped me design the perfect curbing for my garden beds and executed flawlessly. The curbing has made lawn maintenance so much easier!"
-                </p>
-                <div className="flex items-center">
-                  <div className="h-10 w-10 bg-[#d8f84a]/10 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-[#d8f84a] font-semibold">SM</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">Sarah Mitchell</h4>
-                    <p className="text-stone-300">Ann Arbor, MI</p>
+                  <p className="text-stone-300 mb-4">
+                    "{testimonial.text}"
+                  </p>
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 bg-[#d8f84a]/10 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-[#d8f84a] font-semibold">{testimonial.author.split(' ')[0]}</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white">{testimonial.author}</h4>
+                      <p className="text-stone-300">{testimonial.location}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="bg-stone-900/50 p-6 rounded-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#d8f84a]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-stone-300 mb-4">
-                  "We had Premium Edge install curbing around our commercial property. The work was completed on time and on budget. The curbing has dramatically improved the appearance of our landscaping."
-                </p>
-                <div className="flex items-center">
-                  <div className="h-10 w-10 bg-[#d8f84a]/10 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-[#d8f84a] font-semibold">RJ</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">Robert Johnson</h4>
-                    <p className="text-stone-300">Business Owner</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-stone-900/50 p-6 rounded-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#d8f84a]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-stone-300 mb-4">
-                  "I can't say enough good things about Premium Edge Curbing. They completely transformed our backyard with their beautiful concrete curbing. The team was punctual, professional, and paid attention to every detail. The stamped pattern we chose looks amazing and has held up perfectly for over a year now. Our neighbors have all asked for their contact information!"
-                </p>
-                <div className="flex items-center">
-                  <div className="h-10 w-10 bg-[#d8f84a]/10 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-[#d8f84a] font-semibold">LW</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">Lisa Williams</h4>
-                    <p className="text-stone-300">Lansing, MI</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-stone-900/50 p-6 rounded-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#d8f84a]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.363 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.363-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-stone-300 mb-4">
-                  "After getting quotes from several companies, we chose Premium Edge for our landscape curbing project. Best decision ever! Their pricing was competitive and the quality of work was outstanding. The curbing has completely eliminated our edging maintenance."
-                </p>
-                <div className="flex items-center">
-                  <div className="h-10 w-10 bg-[#d8f84a]/10 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-[#d8f84a] font-semibold">DP</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">David Parker</h4>
-                    <p className="text-stone-300">Chelsea, MI</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
