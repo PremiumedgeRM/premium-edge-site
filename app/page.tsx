@@ -315,7 +315,7 @@ export default function Home() {
                   </p>
                   <div className="flex items-center">
                     <div className="h-10 w-10 bg-[#d8f84a]/10 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-[#d8f84a] font-semibold">{testimonial.author.split(' ')[0]}</span>
+                      <span className="text-[#d8f84a] font-semibold">{testimonial.author[0]}</span>
                     </div>
                     <div>
                       <h4 className="font-semibold text-white">{testimonial.author}</h4>
